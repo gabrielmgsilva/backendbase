@@ -1,0 +1,64 @@
+spring:
+  profiles:
+    active: homolog
+  application:
+    name: base
+  jpa:
+    show-sql: true
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: none
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+client:
+  secret:
+    webapp: fZ2Fpb0Bob3RtYWlsLm
+  jwt:
+    signature: CerberusItTokenSignature
+    accessToken:
+      expiration: 86400
+    refreshToken:
+      expiration: 604800
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    auth:
+      url: jdbc:postgresql://127.0.0.1:5432/cerberus?current_schema=sch_auth
+      username: postgres
+      password: 1234
+      driverClassName: org.postgresql.Driver
+    application:
+      url: jdbc:postgresql://127.0.0.1:5432/cerberus?current_schema=sch_application
+      username: postgres
+      password: 1234
+      driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        enable_lazy_load_no_trans: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use_jdbc_metadata_default: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
