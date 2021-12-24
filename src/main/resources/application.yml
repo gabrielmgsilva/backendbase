@@ -13,6 +13,8 @@ spring:
       fail-on-empty-beans: false
   main:
     allow-bean-definition-overriding: true
+  flyway:
+    schemas: sch_auth, sch_application
 
 server:
   port: 8080
@@ -29,6 +31,7 @@ client:
     refreshToken:
       expiration: 604800
 
+
 ---
 spring:
   config:
@@ -40,14 +43,14 @@ spring:
       username: postgres
       password: 1234
       driverClassName: org.postgresql.Driver
-    application:
-      url: jdbc:postgresql://127.0.0.1:5432/cerberus?current_schema=sch_application
-      username: postgres
-      password: 1234
-      driverClassName: org.postgresql.Driver
+#    application:
+#      url: jdbc:postgresql://127.0.0.1:5432/cerberus?current_schema=sch_application
+#      username: postgres
+#      password: 1234
+#      driverClassName: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         show_sql: true
@@ -59,6 +62,5 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-    database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
