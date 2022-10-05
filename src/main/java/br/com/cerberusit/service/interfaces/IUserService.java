@@ -9,8 +9,7 @@ public interface IUserService {
 
     Page<UserResponseDto> findAll(Pageable pageable);
     UserResponseDto findById(Long id);
-    UserResponseDto createUser(UserRequestDto userRequestDto);
-    UserResponseDto updateUser(UserRequestDto userRequestDto);
-    UserResponseDto switchUserState(Long id, String operation);
+    UserResponseDto createOrUpdateUser(UserRequestDto userRequestDto);
+    UserResponseDto switchUserState(Long id) throws Exception;
     void deleteUser(Long id);
 }

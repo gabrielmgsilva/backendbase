@@ -1,5 +1,6 @@
 package br.com.cerberusit.domain.model.auth;
 
+import br.com.cerberusit.controller.request.AddressRequestDto;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -24,4 +25,11 @@ public class Address {
     @Column(name = "state", length = 50)
     private String state;
 
+    public Address(AddressRequestDto address) {
+        this.street = address.getStreet();
+        this.zipCode = address.getZipCode();
+        this.district = address.getDistrict();
+        this.city = address.getCity();
+        this.state = address.getState();
+    }
 }
