@@ -1,14 +1,16 @@
 package br.com.cerberusit.controller.response;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
 public class UserResponseDto implements Serializable {
-    private final Long id;
-    private final boolean isActive;
-    private final String email;
-    private final String login;
-    private final ProfileResponseDto profile;
+    private Long id;
+    private boolean isActive;
+    private String email;
+    private String login;
+    private ProfileResponseDto profile;
 }

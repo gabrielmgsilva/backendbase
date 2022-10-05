@@ -1,13 +1,15 @@
 package br.com.cerberusit.controller.response;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
+@NoArgsConstructor
 public class ProfileMenuAccessResponseDto implements Serializable {
-    private final Long id;
-    private final boolean read;
-    private final boolean write;
-    private final MenuAccessResponseDto menuAccesses;
+    private Long id;
+    private boolean read;
+    private boolean write;
+    private MenuAccessResponseDto menuAccesses;
 }

@@ -1,0 +1,1 @@
+ALTER TABLE sch_auth.t_menu_accesses DROP COLUMN menu_icon;

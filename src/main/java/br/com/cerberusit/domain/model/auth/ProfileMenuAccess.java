@@ -1,5 +1,6 @@
 package br.com.cerberusit.domain.model.auth;
 
+import br.com.cerberusit.controller.request.ProfileMenuAccessRequestDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,9 +18,9 @@ public class ProfileMenuAccess{
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "canRead")
+    @Column(name = "can_read")
     private boolean read;
-    @Column(name = "canWrite")
+    @Column(name = "can_write")
     private boolean write;
 
 
@@ -30,5 +31,4 @@ public class ProfileMenuAccess{
     @ManyToOne
     @JoinColumn(name = "menu_accesses_id")
     private MenuAccess menuAccesses;
-
 }

@@ -15,9 +15,9 @@ public class Mapper {
 
     private Mapper(){}
 
-    public static <D,T> Page<D> mapEntityToPagedDto(Page<T> entity, Class<D> dto){
+    public static <T,S> Page<T> mapEntityToPagedDto(Page<S> source, Class<T> targetClass){
         log.info("INVOKING MAPPER");
-        return entity.map(obj -> modelMapper.map(obj, dto));
+        return source.map(obj -> modelMapper.map(obj, targetClass));
     }
 
     public static <S, T> List<T> mapEntityToListedDto(List<S> source, Class<T> targetClass) {

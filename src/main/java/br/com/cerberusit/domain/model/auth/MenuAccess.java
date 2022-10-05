@@ -1,11 +1,9 @@
 package br.com.cerberusit.domain.model.auth;
 
+import br.com.cerberusit.controller.request.MenuAccessRequestDto;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -22,8 +20,6 @@ public class MenuAccess extends AbstractEntity{
     private String menuPath;
     @Column(name = "menu_title")
     private String menuTitle;
-    @Column(name = "menu_icon")
-    private String menuIcon;
 
     @OneToMany(mappedBy = "menuAccesses", orphanRemoval = true)
     private Set<ProfileMenuAccess> profileMenuAccesses = new LinkedHashSet<>();
